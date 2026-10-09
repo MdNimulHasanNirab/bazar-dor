@@ -1,16 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import toast from "react-hot-toast";
 
 export function AuthNotice() {
-  const p = useSearchParams();
+  const searchParams = useSearchParams();
+  const registered = searchParams.get("registered");
 
-  useEffect(() => {
-    if (p.get("reason") === "protected")
-      toast.error("বিস্তারিত দেখতে আগে সাইন ইন করুন");
-  }, [p]);
+  if (!registered) return null;
 
-  return null;
+  return (
+    <div className="p-3 mb-4 bg-emerald-50 text-emerald-800 text-sm rounded-lg text-center font-medium border border-emerald-200">
+      অ্যাকাউন্ট তৈরি সফল হয়েছে। আপনার তথ্য দিয়ে সাইন ইন করুন।
+    </div>
+  );
 }
+
+export default AuthNotice;

@@ -448,21 +448,22 @@ main {
   background: #f1f5f9;
   color: #64748b;
 }
-
 footer {
   width: 100% !important;
   max-width: 100% !important;
-  background: #14271a;
-  color: #d6e1d8;
-  padding: 25px 0;
+  background-color: #ffffff !important; /* Clean white background matching Figma */
+  border-top: 1px solid #e5e7eb;        /* Light top border divider */
+  padding: 20px 0;
+  margin-top: 40px;
 }
 
 .footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  gap: 24px;
   font-size: 14px;
+  color: #374151; /* Dark gray text color matching Figma */
   width: 100%;
 }
 
@@ -471,21 +472,14 @@ footer {
   line-height: 1.5;
 }
 
-.footer-inner b {
-  color: #86efac;
+/* Mobile responsive alignment */
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
 }
-
-.mobile-nav {
-  display: none;
-}
-
-.skeleton {
-  background: linear-gradient(90deg, #edf2ee 25%, #f8faf8 50%, #edf2ee 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.3s infinite;
-  border-radius: 12px;
-}
-
 @keyframes shimmer {
   to {
     background-position: -200% 0;
