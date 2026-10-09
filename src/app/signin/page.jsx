@@ -1,3 +1,4 @@
+// src/app/signin/page.jsx
 import { Suspense } from "react";
 import AuthForm from "@/components/auth-form";
 import AuthNotice from "@/components/auth-notice";
