@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# বাজার দর | BazarDor
+
+A responsive web application for viewing essential product prices
+and comparing market rates in Bangladesh.
+
+## Technologies
+
+- Next.js App Router
+- JavaScript
+- Tailwind CSS
+- Better Auth
+- React Hot Toast
+- REST API
+
+## Features
+
+1. Responsive homepage and navigation
+2. Product price cards
+3. Price increase and decrease sections
+4. Category filtering and price sorting
+5. Product detail and market-price comparison
+6. Email/password authentication
+7. Google and GitHub login
+8. Profile management
+9. Loading skeletons and custom 404 page
+10. Bengali currency and numeral formatting
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
 
-```bash
+npm install
+
+Run the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open http://localhost:3000
