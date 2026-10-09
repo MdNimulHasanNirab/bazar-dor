@@ -1,12 +1,12 @@
+
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { Toaster } from "react-hot-toast";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "বাজার দর | BazarDor",
+  title: "BazarDor | আপনার প্রতিদিনের বাজার",
   description:
-    "বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের বাজারদর এক নজরে দেখুন।",
+    "BazarDor — চাল, ডাল, তেল, সবজি ও নিত্যপ্রয়োজনীয় পণ্য সহজে খুঁজুন।",
 };
 
 export default function RootLayout({ children }) {
@@ -14,12 +14,8 @@ export default function RootLayout({ children }) {
     <html lang="bn">
       <body>
         <Navbar />
-
-        <main>{children}</main>
-
+        <main className="main-content">{children}</main>
         <Footer />
-
-        <Toaster position="top-right" />
       </body>
     </html>
   );

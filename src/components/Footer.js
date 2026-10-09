@@ -1,23 +1,38 @@
+
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="mt-12 border-t border-[var(--border)] bg-white">
-      <div className="container-main flex flex-col justify-between gap-4 py-8 sm:flex-row sm:items-center">
+    <footer className="footer">
+      <div className="container footer-grid">
         <div>
-          <Link
-            href="/"
-            className="text-lg font-extrabold text-[var(--green)]"
-          >
-            বাজার দর
+          <Link href="/" className="footer-brand">
+            Bazar<span>Dor</span>
           </Link>
-          <p className="mt-1 text-sm text-gray-500">
-            প্রয়োজনীয় পণ্যের দাম এক নজরে।
+          <p>
+            আপনার প্রতিদিনের বাজার এখন আরও সহজ।
+            প্রয়োজনীয় পণ্য খুঁজুন এক জায়গায়।
           </p>
         </div>
 
-        <p className="max-w-md text-sm leading-6 text-gray-500 sm:text-right">
-          সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।
+        <div>
+          <h3>দ্রুত লিংক</h3>
+          <Link href="/">হোম</Link>
+          <Link href="/#categories">ক্যাটাগরি</Link>
+          <Link href="/#products">পণ্যসমূহ</Link>
+        </div>
+
+        <div>
+          <h3>আপনার অ্যাকাউন্ট</h3>
+          <Link href="/signin">সাইন ইন</Link>
+          <Link href="/signup">সাইন আপ</Link>
+          <Link href="/profile">প্রোফাইল</Link>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>
+          © {new Date().getFullYear()} BazarDor. All rights reserved.
         </p>
       </div>
     </footer>
