@@ -27,8 +27,8 @@ export const metadata = {
     "বাংলাদেশ বাজার মূল্য",
     "Bazar Dor",
   ],
-  authors: [{ name: "Kamrul Hossain" }],
-  creator: "Kamrul Hossain",
+  authors: [{ name: "NH Nirab" }],
+  creator: "NH Nirab",
   publisher: "বাজার দর",
   alternates: { canonical: "/" },
   openGraph: {
@@ -53,7 +53,7 @@ export const metadata = {
     title: "বাজার দর | নিত্যপণ্যের আজকের বাজারদর",
     description:
       "বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের সর্বনিম্ন, সর্বাধিক ও গড় বাজারদর এক নজরে দেখুন।",
-    images: ["/assets/bazar-hero.png"],
+    images: ["/assets/hero.png"],
   },
   robots: {
     index: true,
@@ -87,7 +87,7 @@ export default function RootLayout({ children }) {
           <Suspense fallback={null}>
             <Header />
           </Suspense>
-          <main>{children}</main>
+          <main className="site-main-content">{children}</main>
           <Suspense fallback={null}>
             <Footer />
           </Suspense>

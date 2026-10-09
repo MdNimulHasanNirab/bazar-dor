@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --green: #047c37;
@@ -11,16 +13,26 @@
   --orange: #f59e0b;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip; /* clip (not hidden) so the sticky header keeps working */
   background: #fafcfa;
   color: var(--ink);
   font-family: var(--font-hind), sans-serif;
@@ -38,18 +50,30 @@ select {
 }
 
 main {
+  width: 100%;
   min-height: 70vh;
 }
 
+/* Centered content box: use on <main> or inside pages only */
 .container {
   width: min(1180px, calc(100% - 40px));
+  max-width: none; /* stops Tailwind's breakpoint max-widths from interfering */
   margin-inline: auto;
+}
+
+/* Edge-to-edge rows for header, ticker and footer */
+.full-width-row {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 204px;
 }
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 30;
+  width: 100%;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -59,7 +83,9 @@ main {
   height: 74px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 28px;
+  width: 100%;
 }
 
 .brand {
@@ -113,8 +139,9 @@ main {
 
 .auth-actions {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
+  margin-left: auto;
 }
 
 .btn {
@@ -154,6 +181,7 @@ main {
 
 .ticker {
   height: 31px;
+  width: 100%;
   overflow: hidden;
   background: #ecf9ef;
   color: #33483a;
@@ -422,6 +450,8 @@ main {
 }
 
 footer {
+  width: 100% !important;
+  max-width: 100% !important;
   background: #14271a;
   color: #d6e1d8;
   padding: 25px 0;
@@ -429,13 +459,16 @@ footer {
 
 .footer-inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 30px;
   font-size: 14px;
+  width: 100%;
 }
 
 .footer-inner p {
   margin: 0;
+  line-height: 1.5;
 }
 
 .footer-inner b {
@@ -484,6 +517,9 @@ footer {
 @media (max-width: 680px) {
   .container {
     width: min(100% - 28px, 1180px);
+  }
+  .full-width-row {
+    padding-inline: 14px;
   }
   .topbar {
     height: 65px;
@@ -1945,22 +1981,8 @@ body:has(.auth-page) .topbar {
   font-size: 12px;
 }
 
-/* Center compact account pages and remove unnecessary page scrolling */
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-body:has(.auth-page),
-body:has(.profile-page) {
-  height: 100vh;
-  overflow: hidden;
-}
-
-body:has(.auth-page) footer,
-body:has(.profile-page) footer,
-body:has(.profile-page) .ticker {
+/* Center compact account pages (sign-in / sign-up / profile) */
+body:has(.auth-page) footer {
   display: none;
 }
 
@@ -1968,8 +1990,7 @@ body:has(.profile-page) .topbar {
   height: 58px;
 }
 
-main:has(.auth-page),
-main:has(.profile-page) {
+main:has(.auth-page) {
   min-height: calc(100vh - 58px);
   height: calc(100vh - 58px);
 }
@@ -2049,25 +2070,6 @@ main:has(.profile-page) {
 }
 
 /* Keep no-scroll behavior scoped to sign-in and sign-up only. */
-body:has(.auth-page),
-body:has(.profile-page) {
-  height: auto;
-  overflow-y: auto;
-}
-
-body:has(.profile-page) footer,
-body:has(.profile-page) .ticker {
-  display: block;
-}
-
-body:has(.profile-page) .ticker {
-  overflow: hidden;
-}
-
-body:has(.profile-page) .topbar {
-  height: 66px;
-}
-
 main:has(.profile-page) {
   min-height: 70vh;
   height: auto;

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategory } from "@/lib/products";
-import { CategoryProducts } from "@/components/category-products";
+import CategoryProducts from "@/components/category-products";
 
 export default async function CategoryPage({ params }) {
   const { slug } = await params;

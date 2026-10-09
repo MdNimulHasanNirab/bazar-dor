@@ -10,6 +10,7 @@ const baseURL =
 
 export const auth = betterAuth({
   database: mongodbAdapter(db, { transaction: false }),
+  secret: process.env.BETTER_AUTH_SECRET,
   baseURL,
   account: {
     // Keep OAuth state encrypted in a short-lived browser cookie. This avoids
@@ -19,15 +20,20 @@ export const auth = betterAuth({
   advanced: {
     useSecureCookies: isProduction,
   },
-  emailAndPassword: { enabled: true, autoSignIn: false },
+  emailAndPassword: {
+    enabled: true,
+    autoSignIn: false,
+  },
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID ?? "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+      enabled: Boolean(process.env.GOOGLE_CLIENT_ID),
     },
     github: {
       clientId: process.env.GITHUB_CLIENT_ID ?? "",
       clientSecret: process.env.GITHUB_CLIENT_SECRET ?? "",
+      enabled: Boolean(process.env.GITHUB_CLIENT_ID),
     },
   },
   trustedOrigins: [

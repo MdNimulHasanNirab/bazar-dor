@@ -50,7 +50,7 @@ export default async function Home() {
             <span className="orb one" />
             <span className="orb two" />
             <Image
-              src="/assets/bazar-hero.png"
+              src="/assets/hero.png"
               width={430}
               height={430}
               alt="বাজারের পণ্যের ঝুড়ি"

@@ -44,28 +44,15 @@ export function Header() {
 
   return (
     <header className="site-header">
-      <div className="topbar container">
+      {/* Top Header Bar */}
+      <div className="topbar full-width-row">
         <Link href="/" className="brand">
-          <Image src="/assets/logo-icon.png" width={34} height={34} alt="" />
+          <Image src="/assets/logo.png" width={34} height={34} alt="" />
           <span>
             <b>বাজার দর</b>
             <small suppressHydrationWarning>{date}</small>
           </span>
         </Link>
-        <nav className="desktop-nav">
-          <Link className={pathname === "/" ? "active" : undefined} href="/">
-            হোম
-          </Link>
-          {categories.map(([s, n]) => (
-            <Link
-              className={pathname === `/category/${s}` ? "active" : undefined}
-              key={s}
-              href={`/category/${s}`}
-            >
-              {n}
-            </Link>
-          ))}
-        </nav>
         <div className="auth-actions">
           {!isPending && session ? (
             <>
@@ -95,6 +82,24 @@ export function Header() {
           </button>
         </div>
       </div>
+
+      {/* Category Navigation Bar Below Topbar */}
+      <nav className="desktop-nav full-width-row">
+        <Link className={pathname === "/" ? "active" : undefined} href="/">
+          হোম
+        </Link>
+        {categories.map(([s, n]) => (
+          <Link
+            className={pathname === `/category/${s}` ? "active" : undefined}
+            key={s}
+            href={`/category/${s}`}
+          >
+            {n}
+          </Link>
+        ))}
+      </nav>
+
+      {/* Mobile Navigation Drawer */}
       {open && (
         <nav className="mobile-nav">
           <Link
@@ -120,7 +125,9 @@ export function Header() {
           ))}
         </nav>
       )}
-      <div className="ticker">
+
+      {/* Ticker Bar */}
+      <div className="ticker full-width-row">
         <div>
           🍚 মিনিকেট চাল ৯৯ টাকা/কেজি <em>▼ ২.৯%</em>  🧅 পেঁয়াজ ৬৮ টাকা/কেজি{" "}
           <b>▲ ৪.৬%</b>  🥚 ডিম ১৫৮ টাকা/ডজন <b>▲ ৩.৯%</b>  🧄 রসুন ১২৫
