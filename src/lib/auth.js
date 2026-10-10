@@ -7,6 +7,7 @@ import clientPromise from "@/lib/mongodb";
 const client = await clientPromise;
 const db = client.db("bazar-dor");
 
+// Initialize Better Auth
 export const auth = betterAuth({
   database: mongodbAdapter(db, {
     client,
@@ -17,21 +18,24 @@ export const auth = betterAuth({
     enabled: true,
   },
 
-  // GitHub and Google authentication
+  // Google and GitHub authentication
   socialProviders: {
-    github: {
-      clientId: process.env.GITHUB_CLIENT_ID || "",
-      clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
-    },
-
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID || "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     },
+
+    github: {
+      clientId: process.env.GITHUB_CLIENT_ID || "",
+      clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
+    },
   },
 
+  // Authentication security
   secret: process.env.BETTER_AUTH_SECRET,
 
+  // Use the configured URL, with a local fallback
   baseURL:
-    process.env.BETTER_AUTH_URL || "http://localhost:3000",
+    process.env.BETTER_AUTH_URL ||
+    "http://localhost:3000",
 });
