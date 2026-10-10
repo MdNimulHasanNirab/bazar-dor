@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Hind_Siliguri } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -83,6 +84,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="bn">
       <body className={hind.variable}>
+        <Toaster position="top-right" reverseOrder={false} />
         <Providers>
           <Suspense fallback={null}>
             <Header />
