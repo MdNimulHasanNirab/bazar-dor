@@ -1,10 +1,9 @@
-
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { signIn, authClient } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 
 export default function SignInPage() {
@@ -18,7 +17,7 @@ export default function SignInPage() {
     setLoading(true);
 
     try {
-      const { error } = await signIn.email({
+      const { error } = await authClient.signIn.email({
         email,
         password,
       });
